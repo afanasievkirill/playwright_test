@@ -11,7 +11,9 @@ jobs:
       steps:
         - uses: actions/checkout@v2
 
-        - uses: actions/setup-node@v1
+        - uses: actions/setup-node@v2
+            with:
+              node-version: '14'
 
         - uses: microsoft/playwright-github-action@v1
 
@@ -33,7 +35,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           registry: ghcr.io
-          name: ghcr.io/afanasievkirill/nestjs_example/nestjs_api_example
+          name: ghcr.io/afanasievkirill/playwright_test/playwright_test_example
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           tags: "develop"

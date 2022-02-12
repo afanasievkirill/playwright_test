@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "tsc --incremental -p ./tsconfig.json",
-    "test": "playwright test -c tests-out",
+    "test": "playwright test",
     "prettier": "npx prettier --write src/*",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",

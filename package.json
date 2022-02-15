@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "test:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "test:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
+    "test:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
+    "test:e2e": "playwright test --config=e2e.config.ts --project=Chromium",
     "prettier": "npx prettier --write src/*",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",

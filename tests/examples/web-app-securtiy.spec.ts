@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Web app invalid login.', async ({ page }) => {
+test('Web app invalid login. @webApp', async ({ page }) => {
 	await page.goto('http://zero.webappsecurity.com/');
 	await page.click('#signin_button:visible');
 	await page.click('input[value="Sign in"]:visible');
@@ -8,7 +8,7 @@ test('Web app invalid login.', async ({ page }) => {
 	await expect(errorMessage).toContainText('Login and/or password are wrong.');
 });
 
-test('Web app invalid login with input data.', async ({ page }) => {
+test('Web app invalid login with input data. @webApp', async ({ page }) => {
 	await page.goto('http://zero.webappsecurity.com/');
 	await page.click('#signin_button:visible');
 	await page.type('#user_login', 'test name');

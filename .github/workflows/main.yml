@@ -33,7 +33,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           registry: ghcr.io
-          name: ghcr.io/afanasievkirill/playwright_test/playwright_test_example
+          name: ghcr.io/afanasievkirill/playwright_test/playwright_test_xample
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          tags: "develop"
+          tags: "develop""

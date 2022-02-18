@@ -1,18 +1,21 @@
 import test, { expect } from '@playwright/test';
+import { Navbar } from '../../pages/components/Navbar';
 import { HomePage } from '../../pages/HomePage';
 import { LoginPage } from '../../pages/LoginPage';
 
 test.describe.parallel.only('New payment', () => {
 	let homePage: HomePage;
 	let loginPage: LoginPage;
+	let navbar: Navbar;
 	test.beforeEach(async ({ page }) => {
 		loginPage = new LoginPage(page);
 		homePage = new HomePage(page);
+		navbar = new Navbar(page);
 		await homePage.visit();
 		await homePage.signIn();
 		await loginPage.login('username', 'password');
 		await page.goto('http://zero.webappsecurity.com/bank/account-summary.html');
-		await page.click('#pay_bills_tab:visible');
+		await navbar.clickOnNavbar('Transfer Funds');
 	});
 
 	test('Sprint payes saving acc', async ({ page }) => {

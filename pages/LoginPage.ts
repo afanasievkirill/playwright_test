@@ -6,6 +6,7 @@ export class LoginPage {
 	readonly passwordInput: Locator;
 	readonly signInButton: Locator;
 	readonly errorMessage: Locator;
+	readonly loginForm: Locator;
 
 	constructor(page: Page) {
 		this.page = page;
@@ -13,6 +14,7 @@ export class LoginPage {
 		this.passwordInput = page.locator('#user_password:visible');
 		this.signInButton = page.locator('input[value="Sign in"]:visible');
 		this.errorMessage = page.locator('div[class="alert alert-error"]:visible');
+		this.loginForm = page.locator('#login_form');
 	}
 
 	async login(username: string, password: string): Promise<void> {
@@ -23,5 +25,9 @@ export class LoginPage {
 
 	async assertErrorMessage(): Promise<void> {
 		await expect(this.errorMessage).toContainText('Login and/or password are wrong.');
+	}
+
+	async loginFormSnapshot(): Promise<void> {
+		await expect(this.loginForm.screenshot()).toMatchSnapshot('login-form.png');
 	}
 }

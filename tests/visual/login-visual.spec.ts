@@ -13,6 +13,6 @@ test.describe.parallel('Login Logout flow', () => {
 	});
 
 	test('Check login form', async ({ page }) => {
-		await loginPage.loginFormSnapshot();
+		await loginPage.snapshotLoginForm();
 	});
 });

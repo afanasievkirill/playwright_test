@@ -27,7 +27,11 @@ export class LoginPage {
 		await expect(this.errorMessage).toContainText('Login and/or password are wrong.');
 	}
 
-	async loginFormSnapshot(): Promise<void> {
+	async snapshotLoginForm(): Promise<void> {
 		await expect(this.loginForm.screenshot()).toMatchSnapshot('login-form.png');
+	}
+
+	async snapshotErrorMessage(): Promise<void> {
+		await expect(this.errorMessage.screenshot()).toMatchSnapshot('login-error.png');
 	}
 }
